@@ -6,6 +6,7 @@ using DG.Tweening;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] VariableJoystick vj;
 	[SerializeField] RayCast ray;
 	public float walkingSpeed = 7.5f;
 	public float runningSpeed = 11.5f;
@@ -43,17 +44,23 @@ public class PlayerMovement : MonoBehaviour
 		canMouseMove = false;
 		canRay = false;
 	}
-
-	void Update()
+    float rotX;
+    float rotY;
+    void Update()
 	{
 		// We are grounded, so recalculate move direction based on axes
 		Vector3 forward = transform.TransformDirection(Vector3.forward);
 		Vector3 right = transform.TransformDirection(Vector3.right);
 		// Press Left Shift to run
 		bool isRunning = Input.GetKey(KeyCode.LeftShift);
-		float curSpeedX = canMove ? (isRunning ? runningSpeed : walkingSpeed) * Input.GetAxis("Vertical") : 0;
+        /*float curSpeedX = canMove ? (isRunning ? runningSpeed : walkingSpeed) * Input.GetAxis("Vertical") : 0;
 		float curSpeedY = canMove ? (isRunning ? runningSpeed : walkingSpeed) * Input.GetAxis("Horizontal") : 0;
-		float movementDirectionY = moveDirection.y;
+		*/
+        // for mobile 
+        float curSpeedX = canMove ? (isRunning ? runningSpeed : walkingSpeed) * vj.Vertical : 0;
+        float curSpeedY = canMove ? (isRunning ? runningSpeed : walkingSpeed) * vj.Horizontal : 0;
+
+        float movementDirectionY = moveDirection.y;
 		moveDirection = (forward * curSpeedX) + (right * curSpeedY);
 
 		// There are not need for Jump on this project so far
@@ -78,15 +85,69 @@ public class PlayerMovement : MonoBehaviour
 		characterController.Move(moveDirection * Time.deltaTime);
 
 		// Player and Camera rotation
-		MouseInputDown();
-		MouseInputUp();
-		if (canMove && canMouseMove)
-		{
-			rotationX += -Input.GetAxis("Mouse Y") * lookSpeed;
-			rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
-			playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
-			transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
-		}
+		//MouseInputDown();
+		//MouseInputUp();
+        if (!isPointerUp)
+        {
+            /*	rotationX += -Input.GetAxis("Mouse Y") * lookSpeed;
+                rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
+                playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
+                transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);*/
+
+            // for mobile
+            if (Input.touchCount > 0)
+            {
+                Touch touch = Input.GetTouch(0);
+
+                if (touch.phase == TouchPhase.Began)
+                {
+                   
+                    characterController.enabled = true;
+                    Debug.Log("MouseDown");
+                    
+                    canMouseMove = true;
+                    canRay = true;
+                    
+                    
+
+                }
+                else if (touch.phase == TouchPhase.Moved && canMove && canMouseMove)
+                {
+                    canRay = false;
+                    Vector2 pos = touch.position;
+                    rotX += touch.deltaPosition.y * lookSpeed * Mathf.Deg2Rad * Time.deltaTime;
+                    rotY += touch.deltaPosition.x * lookSpeed * Mathf.Deg2Rad * Time.deltaTime;
+
+                    /*rotX = Mathf.Clamp(rotX, minX, maxX);
+                    rotY = Mathf.Clamp(rotY, minY, maxY);*/
+
+                    //camera.transform.localEulerAngles = new Vector3(0, rotY, 0);
+                    playerCamera.transform.localEulerAngles = new Vector3(-rotX, playerCamera.transform.localEulerAngles.y, 0);
+                    transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, rotY, 0);
+
+                    //transform.DORotate(new Vector3(0, transform.rotation.y + rotX, transform.rotation.z + rotY), 0.1f, RotateMode.Fast);
+
+                    //transform.Rotate(new Vector3(0f, transform.rotation.y + rotX, transform.rotation.z + rotY) * sencativity * Time.deltaTime, Space.World);
+                    //camera.transform.Rotate(new Vector3(camera.transform.loca.x - rotY , camera.transform.rotation.y + rotX , 0) * sencativity * Time.deltaTime, Space.Self);
+
+                    //camera.transform.rotation = Quaternion.Euler(camera.transform.rotation.x, camera.transform.rotation.y, 0f);
+                }
+                else if (touch.phase == TouchPhase.Ended)
+                {
+                    canMouseMove = false;
+                    if (canRay)
+                    {
+                        Debug.Log("rayCast");
+
+                        ray.Ray();
+
+                        canRay = false;
+
+                    }
+                }
+            }
+            
+        }
 	}
 	
 	/// <summary>
@@ -108,7 +169,7 @@ public class PlayerMovement : MonoBehaviour
 		if(canMouseMove)
 		{
 			//Debug.Log(Vector3.Distance(Input.mousePosition,lastMousePos).ToString());
-			if(Vector3.Distance(Input.mousePosition,lastMousePos)!= 0.0f)
+			if(Vector3.Distance(Input.mousePosition,lastMousePos) != 0.0f)
 			{
 				
 				canRay = false;
@@ -117,35 +178,50 @@ public class PlayerMovement : MonoBehaviour
 		}
 		
 	}
-	
-	void MouseInputUp()
-	{
-		Debug.Log("MOuse Up");
-		if(Input.GetMouseButtonUp(0))
-		{
-			canMouseMove = false;
-			if(canRay)
-			{
-				Debug.Log("rayCast");
-				
-				ray.Ray();
-			
-				canRay = false;
-				
-			}
-		}
-		
-	}
+
+    void MouseInputUp()
+    {
+        //Debug.Log("MOuse Up");
+        if (Input.GetMouseButtonUp(0))
+        {
+            canMouseMove = false;
+            if (canRay)
+            {
+                Debug.Log("rayCast");
+
+                ray.Ray();
+
+                canRay = false;
+
+            }
+        }
+
+    }
+
+    [SerializeField] private bool isPointerUp = true;
+    public void EventPointerUp()
+    {
+        isPointerUp = true;
+        vj.gameObject.SetActive(true);
+    }
+    public void EventPointerDown()
+    {
+        isPointerUp = false;
+
+        vj.gameObject.SetActive(false);
+    }
+
 	/////////////////////////
 	
 	public void MoveByPoint(Vector3 vec3)
 	{
 		
 		Vector3 v = vec3;
-		v.y=1f;
+		v.y= transform.position.y;
 		characterController.enabled = false;
+        Debug.Log(Vector3.Distance(transform.position, v).ToString());
 		transform.DOKill();
-		transform.DOMove(v, 2f, false).OnComplete(() => 
+		transform.DOMove(v, Vector3.Distance(transform.position, v), false).OnComplete(() => 
 		{
 			characterController.enabled = true;
 		});
