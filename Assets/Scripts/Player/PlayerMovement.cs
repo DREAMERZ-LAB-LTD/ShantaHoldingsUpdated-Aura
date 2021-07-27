@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] VariableJoystick vj;
 	[SerializeField] RayCast ray;
+	[SerializeField] GameObject areaTouchRotate;
 	public float walkingSpeed = 7.5f;
 	public float runningSpeed = 11.5f;
 	public float jumpSpeed = 8.0f;
@@ -84,9 +85,10 @@ public class PlayerMovement : MonoBehaviour
 		// Move the controller
 		characterController.Move(moveDirection * Time.deltaTime);
 
-		// Player and Camera rotation
-		//MouseInputDown();
-		//MouseInputUp();
+        // Player and Camera rotation
+        //MouseInputDown();
+        //MouseInputUp();
+        Touch touch;
         if (!isPointerUp)
         {
             /*	rotationX += -Input.GetAxis("Mouse Y") * lookSpeed;
@@ -97,11 +99,11 @@ public class PlayerMovement : MonoBehaviour
             // for mobile
             if (Input.touchCount > 0)
             {
-                Touch touch = Input.GetTouch(0);
+                touch = Input.GetTouch(0);
 
                 if (touch.phase == TouchPhase.Began)
                 {
-                   
+                    areaTouchRotate.SetActive(false);
                     characterController.enabled = true;
                     Debug.Log("MouseDown");
                     
@@ -132,21 +134,29 @@ public class PlayerMovement : MonoBehaviour
 
                     //camera.transform.rotation = Quaternion.Euler(camera.transform.rotation.x, camera.transform.rotation.y, 0f);
                 }
-                else if (touch.phase == TouchPhase.Ended)
+                
+            }
+            if (Input.touchCount > 0)
+            {
+                touch = Input.GetTouch(0);
                 {
-                    canMouseMove = false;
-                    if (canRay)
+                    if (touch.phase == TouchPhase.Ended)
                     {
-                        Debug.Log("rayCast");
+                        vj.gameObject.SetActive(true);
+                        canMouseMove = false;
+                        if (canRay)
+                        {
+                            Debug.Log("rayCast");
 
-                        ray.Ray();
+                            ray.Ray();
 
-                        canRay = false;
+                            canRay = false;
 
+                        }
+                        areaTouchRotate.SetActive(true);
                     }
                 }
             }
-            
         }
 	}
 	

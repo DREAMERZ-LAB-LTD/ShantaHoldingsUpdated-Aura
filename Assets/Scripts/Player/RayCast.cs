@@ -8,12 +8,13 @@ public class RayCast : MonoBehaviour
 	[SerializeField] Camera camera;
 	public void Ray()
 	{
+        Debug.Log("Ray");
 		RaycastHit hit;
-		Ray ray = camera.ScreenPointToRay(Input.mousePosition);
+		Ray ray = camera.ScreenPointToRay(Input.GetTouch(0).position);
         
 		if (Physics.Raycast(ray, out hit)) {
 			// Do something with the object that was hit by the raycast.
-			Debug.Log(hit.point + " " + hit.transform.tag);
+			Debug.Log(hit.point + " " + hit.transform.name);
 			if(hit.transform.tag == "Ground")
 			{
 				if(MetrialUI.instance.metrailPenel.active == true)
@@ -74,7 +75,11 @@ public class RayCast : MonoBehaviour
 				{
 					hit.transform.GetComponent<FurnitureChange>().Clicked();
 				}
-			}
+            }
+            else
+            {
+                MetrialUI.instance.metrailPenel.SetActive(false);
+            }
 			
 		}
 	}
