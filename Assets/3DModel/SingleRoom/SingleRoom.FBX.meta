@@ -1,0 +1,262 @@
+fileFormatVersion: 2
+guid: 74e2c553c5f6dd649a395b3fb1ffd588
+ModelImporter:
+  serializedVersion: 19301
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BookCover_Static
+    second: {fileID: 2100000, guid: 45219e37db35edf498675b22fe82383e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BookPage_Static
+    second: {fileID: 2100000, guid: 374b138b5051a414aa52ab90766aafb8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BoxWoodFrame_Static
+    second: {fileID: 2100000, guid: e518308484476bd489817c50db9d2886, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CarpetBorder_Static
+    second: {fileID: 2100000, guid: 4193ea52d462b894bb3c7a56be4da84c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CarpetPatern_Static
+    second: {fileID: 2100000, guid: 9917a6949798fdb4bb38527e6c994946, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CenterTableDeco01_Metal_Static
+    second: {fileID: 2100000, guid: 0290ccebb9270d7429cc8e1cbef12c33, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CertainD1_Static
+    second: {fileID: 2100000, guid: 961d98baacc846849b5990bb7f62dd9b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CertainD2_Static
+    second: {fileID: 2100000, guid: 88d94ffcff8dbe24fa99833d80b3c913, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DecoColorD1_Static
+    second: {fileID: 2100000, guid: a9ef577941c2fa447b5d87a0c7ab2658, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DecoColorD2_Static
+    second: {fileID: 2100000, guid: a46f2300e82da30438c25d206b80397e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DecoMetal_Static
+    second: {fileID: 2100000, guid: 021f59f1fb3e25242b1118279bb60c79, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DoorFrame_Static
+    second: {fileID: 2100000, guid: 75090ac186dcc8940b83c68a7e78d201, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DoorHandle_Static
+    second: {fileID: 2100000, guid: 009f58d0262997646aa2f8aa0dc2ac6d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DoorWood_Static
+    second: {fileID: 2100000, guid: 64576b20c1441294caf039604f6c8a91, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FlaseCeiling_Dynamic
+    second: {fileID: 2100000, guid: a5c7d7396a212c7439ef94f8ab3a94e4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FloorDivider_Static
+    second: {fileID: 2100000, guid: daf4528ab08e3a4488f8ac911dfc28a4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: NeomRed_Static
+    second: {fileID: 2100000, guid: 51f535a8553791c4abd4b8679b6e0b7c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: NeonBlue_Static
+    second: {fileID: 2100000, guid: 3e68040030fe8b34f92ec06f7567c1e1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PhotoFrame_Stataic
+    second: {fileID: 2100000, guid: 5231d515fd00143468d92888c17b03ce, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SpotLighEM_Static
+    second: {fileID: 2100000, guid: ae594a10d39235f47a5563af8ba29a04, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SpotLightMetal_Static
+    second: {fileID: 2100000, guid: a04058ee7f70d6544b7047287da3a684, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: StandLight_Metal_Static
+    second: {fileID: 2100000, guid: c573b0a12593e1d43958723251224dea, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: StandLight_Static
+    second: {fileID: 2100000, guid: 73149b7fece4c354aaf715de1ae906e4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TVDisplay_Static
+    second: {fileID: 2100000, guid: 7385a1410810ba94c961bbf3557cfcdc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TVPlastic_Static
+    second: {fileID: 2100000, guid: a945ae71cb798744a987d10621c4198c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TVTableHandle_Static
+    second: {fileID: 2100000, guid: 13cfbbf59fe47854f9a7aaeebb67aaeb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TVTableStatue_Static
+    second: {fileID: 2100000, guid: ffa7e0ddfd1302145bf8351f9d582cfc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TVTable_WoodD1_Static
+    second: {fileID: 2100000, guid: 68ce78fe590204a42861a78b62b08bca, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TVTable_WoodD2_Static
+    second: {fileID: 2100000, guid: 427118d544e2b10469c454f246875249, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WallLightFrame_Static
+    second: {fileID: 2100000, guid: f96c3eab3a69b7d408bbe6df6651aaf3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WallLight_Static
+    second: {fileID: 2100000, guid: 0f22ebc8c3051d848bedac05a59481ea, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WindowFrame_Static
+    second: {fileID: 2100000, guid: 1ee976c035da3dc4fae17d97b0f92dd8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WindowLight_Static
+    second: {fileID: 2100000, guid: 971df9feeef84164d844eb130ce84108, type: 2}
+  materials:
+    materialImportMode: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 1
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 0
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
