@@ -6,7 +6,7 @@ using DG.Tweening;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] VariableJoystick vj;
+   // [SerializeField] VariableJoystick vj;
 	[SerializeField] RayCast ray;
 	[SerializeField] GameObject areaTouchRotate;
 	public float walkingSpeed = 7.5f;
@@ -54,12 +54,12 @@ public class PlayerMovement : MonoBehaviour
 		Vector3 right = transform.TransformDirection(Vector3.right);
 		// Press Left Shift to run
 		bool isRunning = Input.GetKey(KeyCode.LeftShift);
-        /*float curSpeedX = canMove ? (isRunning ? runningSpeed : walkingSpeed) * Input.GetAxis("Vertical") : 0;
-		float curSpeedY = canMove ? (isRunning ? runningSpeed : walkingSpeed) * Input.GetAxis("Horizontal") : 0;
-		*/
+        float curSpeedX = canMove ? (isRunning ? runningSpeed : walkingSpeed) * Input.GetAxis("Vertical") : 0;
+        float curSpeedY = canMove ? (isRunning ? runningSpeed : walkingSpeed) * Input.GetAxis("Horizontal") : 0;
+
         // for mobile 
-        float curSpeedX = canMove ? (isRunning ? runningSpeed : walkingSpeed) * vj.Vertical : 0;
-        float curSpeedY = canMove ? (isRunning ? runningSpeed : walkingSpeed) * vj.Horizontal : 0;
+        /*float curSpeedX = canMove ? (isRunning ? runningSpeed : walkingSpeed) * vj.Vertical : 0;
+        float curSpeedY = canMove ? (isRunning ? runningSpeed : walkingSpeed) * vj.Horizontal : 0;*/
 
         float movementDirectionY = moveDirection.y;
 		moveDirection = (forward * curSpeedX) + (right * curSpeedY);
@@ -109,12 +109,16 @@ public class PlayerMovement : MonoBehaviour
                     
                     canMouseMove = true;
                     canRay = true;
-                    
-                    
 
+
+                   // vj.gameObject.SetActive(false);
                 }
                 else if (touch.phase == TouchPhase.Moved && canMove && canMouseMove)
                 {
+                    // form metrial selct
+                    MetrialUI.instance.metrailPenel.SetActive(false);
+                    MetrialUI.instance.ObjectPenel.SetActive(false);
+                    
                     canRay = false;
                     Vector2 pos = touch.position;
                     rotX += touch.deltaPosition.y * lookSpeed * Mathf.Deg2Rad * Time.deltaTime;
@@ -139,23 +143,25 @@ public class PlayerMovement : MonoBehaviour
             if (Input.touchCount > 0)
             {
                 touch = Input.GetTouch(0);
+                
+                if (touch.phase == TouchPhase.Ended)
                 {
-                    if (touch.phase == TouchPhase.Ended)
+                    Debug.Log("MOuse UP");
+                    isPointerUp = true;
+                  // vj.gameObject.SetActive(true);
+                    canMouseMove = false;
+                    if (canRay)
                     {
-                        vj.gameObject.SetActive(true);
-                        canMouseMove = false;
-                        if (canRay)
-                        {
-                            Debug.Log("rayCast");
+                        Debug.Log("rayCast");
 
-                            ray.Ray();
+                        ray.Ray();
 
-                            canRay = false;
+                        canRay = false;
 
-                        }
-                        areaTouchRotate.SetActive(true);
                     }
+                    areaTouchRotate.SetActive(true);
                 }
+                
             }
         }
 	}
@@ -212,13 +218,13 @@ public class PlayerMovement : MonoBehaviour
     public void EventPointerUp()
     {
         isPointerUp = true;
-        vj.gameObject.SetActive(true);
+       // vj.gameObject.SetActive(true);
     }
     public void EventPointerDown()
     {
         isPointerUp = false;
 
-        vj.gameObject.SetActive(false);
+       // vj.gameObject.SetActive(false);
     }
 
 	/////////////////////////
