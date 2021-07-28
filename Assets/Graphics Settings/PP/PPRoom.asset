@@ -75,7 +75,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1cb7e9e120078f43bce4f0b1be547a7, type: 3}
   m_Name: AmbientOcclusion
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   enabled:
     overrideState: 1
     value: 1
@@ -111,7 +111,7 @@ MonoBehaviour:
     value: 0.03
   quality:
     overrideState: 1
-    value: 3
+    value: 0
 --- !u!114 &7975093738438126826
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1062,7 +1062,7 @@ MonoBehaviour:
       - 0.5820841
       - 0.5826046
       - 0.58315694
-      - 0.5837382
+      - 0.58373815
       - 0.58434516
       - 0.58497477
       - 0.58562404
@@ -1103,7 +1103,7 @@ MonoBehaviour:
       - 0.59680706
       - 0.5961143
       - 0.5953273
-      - 0.59444314
+      - 0.5944431
       - 0.5934586
       - 0.5923707
       - 0.59117633
