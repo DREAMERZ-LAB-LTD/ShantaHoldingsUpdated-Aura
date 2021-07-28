@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
@@ -28,14 +29,36 @@ public class PlayerMovement : MonoBehaviour
 	//[HideInInspector]
 	public bool canRay = false;
 
-	void Start()
-	{
-	
+    [SerializeField] float autoWalk = 1f;
 
-		// Lock cursor
-		//Cursor.lockState = CursorLockMode.Locked;
-		//Cursor.visible = false;
-	}
+    #region Test
+    [SerializeField] Slider slider;
+    [SerializeField] Text textLoockSpeed;
+    [SerializeField] Slider slider1;
+    [SerializeField] Text textWalkSpeed;
+    public void ChangeLookScpped(float val)
+    {
+        lookSpeed = val;
+        textLoockSpeed.text = lookSpeed.ToString();
+    }
+    public void ChangewalkSpeed(float val)
+    {
+        autoWalk = val;
+        textWalkSpeed.text = autoWalk.ToString();
+    }
+    #endregion
+
+    void Start()
+	{
+        slider.value = lookSpeed;
+        textLoockSpeed.text = lookSpeed.ToString();
+        
+        slider1.value = autoWalk;
+        textWalkSpeed.text = autoWalk.ToString();
+        // Lock cursor
+        //Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
+    }
 	// This function is called when the object becomes enabled and active.
 	protected void OnEnable()
 	{
@@ -237,7 +260,7 @@ public class PlayerMovement : MonoBehaviour
 		characterController.enabled = false;
         Debug.Log(Vector3.Distance(transform.position, v).ToString());
 		transform.DOKill();
-		transform.DOMove(v, Vector3.Distance(transform.position, v), false).OnComplete(() => 
+		transform.DOMove(v, Vector3.Distance(transform.position, v) * autoWalk, false).OnComplete(() => 
 		{
 			characterController.enabled = true;
 		});

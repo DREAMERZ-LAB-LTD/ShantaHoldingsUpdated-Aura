@@ -5,7 +5,7 @@ using UnityEngine;
 public class MetrialHolder : MonoBehaviour
 {
 
-	[SerializeField] Transform cam;
+	//[SerializeField] Transform cam;
 	public Color[] colors;
 	public Texture[] texture;
 	public Material metrial;
@@ -18,6 +18,6 @@ public class MetrialHolder : MonoBehaviour
 	// Update is called every frame, if the MonoBehaviour is enabled.
 	protected void Update()
 	{
-		transform.LookAt(cam);
+		//transform.LookAt(cam);
 	}
 }
