@@ -27,11 +27,11 @@ public class RayCast : MonoBehaviour
 					MetrialUI.instance.ObjectPenel.SetActive(false);
 					return;
 				}
-				if(InfoUI.instance.infoPenel.active == true)
+				/*if(InfoUI.instance.infoPenel.active == true)
 				{
 					InfoUI.instance.infoPenel.SetActive(false);
 					return;
-				}
+				}*/
 				playerMove.MoveByPoint(hit.point);
 				
 			}
@@ -50,22 +50,22 @@ public class RayCast : MonoBehaviour
 			else if(hit.transform.tag == "Metrial")
 			{
 				
-				if(InfoUI.instance.infoPenel.active == true)
+				/*if(InfoUI.instance.infoPenel.active == true)
 				{
 					InfoUI.instance.infoPenel.SetActive(false);
 					return;
-				}
+				}*/
 				Debug.Log("Show Metrial");	
 				hit.transform.GetComponent<MetrialHolder>().SelectMetrial();
 			}
 			else if(hit.transform.tag == "MetrialSetUp")
 			{
 				
-				if(InfoUI.instance.infoPenel.active == true)
+				/*if(InfoUI.instance.infoPenel.active == true)
 				{
 					InfoUI.instance.infoPenel.SetActive(false);
 					return;
-				}
+				}*/
 				Debug.Log("Metrial set up");
 				hit.transform.GetComponent<MetrialSetUp>().SetMetrialToObject();
 			}
