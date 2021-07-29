@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SingleRoom.unity
-    guid: 8efc09a6d0033ab42b62bfb39a83cc27
+    path: Assets/Scenes/Aura_Reception.unity
+    guid: 9ca516f039c22f346ae71b8f5314798a
   m_configObjects: {}
