@@ -3584,7 +3584,7 @@ MonoBehaviour:
   colors: []
   texture:
   - {fileID: 2800000, guid: df6250fda724d634c9346c48277d8b37, type: 3}
-  - {fileID: 2800000, guid: e7143e844fc0a934dbde0d55f172b793, type: 3}
+  - {fileID: 2800000, guid: 376a378250bc1eb4796ea5d22dfbcf70, type: 3}
   metrial: {fileID: 2100000, guid: 125889bbd7b5242498f3974763f77735, type: 2}
 --- !u!135 &794503952
 SphereCollider:
