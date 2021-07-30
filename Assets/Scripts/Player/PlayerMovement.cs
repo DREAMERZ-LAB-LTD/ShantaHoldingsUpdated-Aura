@@ -260,7 +260,7 @@ public class PlayerMovement : MonoBehaviour
 		characterController.enabled = false;
         Debug.Log(Vector3.Distance(transform.position, v).ToString());
 		transform.DOKill();
-		transform.DOMove(v, Vector3.Distance(transform.position, v) * autoWalk, false).OnComplete(() => 
+		transform.DOMove(v, autoWalk, false).OnComplete(() => 
 		{
 			characterController.enabled = true;
 		});

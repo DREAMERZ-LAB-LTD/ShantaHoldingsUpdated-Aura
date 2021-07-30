@@ -7,6 +7,8 @@ public class Orbit : MonoBehaviour
 {
 	
 	[SerializeField] float sencativity = 5f;
+    [SerializeField] float min = 10f;
+    [SerializeField] float max = 60f;
 	Vector3 privpos = Vector3.zero;
 	
 	// This function is called when the object becomes enabled and active.
@@ -57,7 +59,7 @@ public class Orbit : MonoBehaviour
 			}
 		    
 			//Up
-			if(Input.GetKey(KeyCode.W) || privpos.y > Input.mousePosition.y&& 0.1 < Mathf.Abs(privpos.y - Input.mousePosition.y) && vec.x > 10 )
+			if(Input.GetKey(KeyCode.W) || privpos.y > Input.mousePosition.y&& 0.1 < Mathf.Abs(privpos.y - Input.mousePosition.y) && vec.x > min )
 			{
 			   
 			
@@ -65,7 +67,7 @@ public class Orbit : MonoBehaviour
 			  
 			}
 			//Down
-			else if(Input.GetKey(KeyCode.S) || privpos.y < Input.mousePosition.y && 1< Mathf.Abs(privpos.y - Input.mousePosition.y) && vec.x < 60)
+			else if(Input.GetKey(KeyCode.S) || privpos.y < Input.mousePosition.y && 1< Mathf.Abs(privpos.y - Input.mousePosition.y) && vec.x < max)
 			{
 			  
 			
