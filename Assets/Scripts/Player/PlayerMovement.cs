@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
 	public bool canRay = false;
 
     [SerializeField] float autoWalk = 1f;
-
+    [SerializeField] Button[] buttons;
     #region Test
     [SerializeField] Slider slider;
     [SerializeField] Text textLoockSpeed;
@@ -141,6 +141,7 @@ public class PlayerMovement : MonoBehaviour
                     // form metrial selct
                     MetrialUI.instance.metrailPenel.SetActive(false);
                     MetrialUI.instance.ObjectPenel.SetActive(false);
+                    foreach (Button b in buttons) b.interactable = true;
                     
                     canRay = false;
                     Vector2 pos = touch.position;
@@ -270,7 +271,14 @@ public class PlayerMovement : MonoBehaviour
 		
 	}
 	
-	
+	////////////////////
+    ///UI on off
+    public void DactiveActiveButtons(Button btn)
+    {
+        foreach (Button b in buttons) b.interactable = true;
+        btn.interactable = false;
+    }
+
 	
 	
 }
