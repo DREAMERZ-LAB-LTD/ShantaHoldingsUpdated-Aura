@@ -9,10 +9,21 @@ public class MetrialHolder : MonoBehaviour
 	public Color[] colors;
 	public Texture[] texture;
 	public Material metrial;
-	
-	public void SelectMetrial()
+    public string metrialType;
+    public int selectMetrialNo;
+
+    private void Start()
+    {
+        if (0 == PlayerPrefs.GetInt("JustInstall", 0))
+        {
+            PlayerPrefs.SetInt(metrialType, selectMetrialNo);
+            PlayerPrefs.SetInt("JustInstall", 1);
+        }
+    }
+
+    public void SelectMetrial()
 	{
-		MetrialUI.instance.SelectAMetrial(colors, texture, metrial);
+		MetrialUI.instance.SelectAMetrial(colors, texture, metrial, metrialType);
 	}
 	
 	// Update is called every frame, if the MonoBehaviour is enabled.

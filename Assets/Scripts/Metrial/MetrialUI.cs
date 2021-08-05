@@ -24,7 +24,7 @@ public class MetrialUI : MonoBehaviour
 	
 	private Material model;
 	
-	public void SelectAMetrial(Color[] clr, Texture[] tex , Material obj)
+	public void SelectAMetrial(Color[] clr, Texture[] tex , Material obj, string metrialType)
 	{
 		foreach( GameObject ob in metrialList)
 		{
@@ -46,7 +46,7 @@ public class MetrialUI : MonoBehaviour
 			if(i >= metrialList.Length) return;
 			
 			metrialList[i].SetActive(true);
-			metrialList[i].GetComponent<MetrialSetUp>().GetMetrial(t);
+			metrialList[i].GetComponent<MetrialSetUp>().GetMetrial(t, metrialType);
 			i++;
 		}
 		

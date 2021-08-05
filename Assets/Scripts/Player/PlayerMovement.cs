@@ -148,8 +148,8 @@ public class PlayerMovement : MonoBehaviour
                     rotX += touch.deltaPosition.y * lookSpeed * Mathf.Deg2Rad * Time.deltaTime;
                     rotY += touch.deltaPosition.x * lookSpeed * Mathf.Deg2Rad * Time.deltaTime;
 
-                    /*rotX = Mathf.Clamp(rotX, minX, maxX);
-                    rotY = Mathf.Clamp(rotY, minY, maxY);*/
+                    rotX = Mathf.Clamp(rotX, -70f, 70f);
+                   // rotY = Mathf.Clamp(rotY, minY, maxY);
 
                     //camera.transform.localEulerAngles = new Vector3(0, rotY, 0);
                     playerCamera.transform.localEulerAngles = new Vector3(-rotX, playerCamera.transform.localEulerAngles.y, 0);
